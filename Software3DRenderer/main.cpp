@@ -36,7 +36,27 @@ int main(int argc, char* argv[]) {
                 isRunning = false;
             }
         }
-		std::fill(pixelBuffer.begin(), pixelBuffer.end(), 0xFF000000);
+
+
+		std::fill(pixelBuffer.begin(), pixelBuffer.end(), 0xFF1E1E1E);
+
+
+
+		int centerX = SCREEN_WIDTH / 2;
+		int centerY = SCREEN_HEIGHT / 2;
+
+		for (int y = centerY - 10; y <= centerY + 10; ++y) {
+			for (int x = centerX - 10; x <= centerX + 10; ++x) {
+				pixelBuffer[y * SCREEN_WIDTH + x] = 0xFF36013F;
+			}
+		}
+
+		SDL_UpdateTexture(texture, nullptr, pixelBuffer.data(), SCREEN_WIDTH * sizeof(uint32_t));
+		SDL_RenderClear(renderer);
+		SDL_RenderCopy(renderer, texture, nullptr, nullptr);
+		SDL_RenderPresent(renderer);
     }
+	
+
 	return 0;
 }
