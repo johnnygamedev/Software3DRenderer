@@ -45,8 +45,8 @@ int main(int argc, char* argv[]) {
 		int centerX = SCREEN_WIDTH / 2;
 		int centerY = SCREEN_HEIGHT / 2;
 
-		for (int y = centerY - 10; y <= centerY + 10; ++y) {
-			for (int x = centerX - 10; x <= centerX + 10; ++x) {
+		for (int y = centerY - 30; y <= centerY + 30; ++y) {
+			for (int x = centerX - 30; x <= centerX + 30; ++x) {
 				pixelBuffer[y * SCREEN_WIDTH + x] = 0xFF36013F;
 			}
 		}
