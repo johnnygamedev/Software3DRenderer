@@ -36,6 +36,7 @@ int main(int argc, char* argv[]) {
                 isRunning = false;
             }
         }
+		std::fill(pixelBuffer.begin(), pixelBuffer.end(), 0xFF301934);
     }
 	return 0;
 }
