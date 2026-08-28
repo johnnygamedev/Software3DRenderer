@@ -5,7 +5,7 @@
 
 
 
-int main() {
+int main(int argc, char* argv[]) {
     bool isRunning = true;
     SDL_Event event;
 
