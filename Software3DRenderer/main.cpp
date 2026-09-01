@@ -8,6 +8,40 @@
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;  
 
+struct Vec3 {
+	float x, y, z;
+	Vec3 operator-(const Vec3& o) const {
+		return { x - o.x, y - o.y, z - o.z };
+	}
+	Vec3 operator+(const Vec3& o) const {
+		return { x + o.x, y + o.y, z + o.z }; 
+	}
+	Vec3 operator*(const Vec3& o) const {
+		return { x * o.x, y * o.y, z * o.z };
+
+	
+	}
+};
+
+struct Mat4 {
+	float m[4][4] = {
+		{1, 0, 0, 0},
+		{0, 1, 0, 0},
+		{0, 0, 1, 0},
+		{0, 0, 0, 1}
+	};
+
+};
+
+Vec3 MultiplyMatrixVec3(const Mat4& mat, const Vec3& v) {
+	float x = v.x * mat.m[0][0] + v.y * mat.m[0][1] + v.z * mat.m[0][2] + mat.m[0][3];
+	float y = v.x * mat.m[1][0] + v.y * mat.m[1][1] + v.z * mat.m[1][2] + mat.m[1][3];
+	float z = v.x * mat.m[2][0] + v.y * mat.m[2][1] + v.z * mat.m[2][2] + mat.m[2][3];
+
+	return { x, y, z };
+};
+
+
 int main(int argc, char* argv[]) {
     bool isRunning = true;
     SDL_Event event;
